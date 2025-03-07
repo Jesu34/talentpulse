@@ -1,0 +1,513 @@
+/* Variables de colores y estilos para facilitar su reutilización */
+:root {
+    --primary-color: #9370DB;     /* Púrpura medio */
+    --primary-light: #B39DDB;     /* Púrpura claro */
+    --primary-dark: #7B68EE;      /* Púrpura oscuro */
+    --secondary-color: #FF6B6B;   /* Coral suave */
+    --accent: #FFD700;            /* Dorado amarillo */
+    --text-dark: #333333;
+    --text-light: #777777;
+    --text-lighter: #999999;
+    --white: #ffffff;
+    --bg-light: #f8f9fc;
+    --shadow-soft: 0 5px 15px rgba(147, 112, 219, 0.1);
+    --shadow-medium: 0 8px 30px rgba(147, 112, 219, 0.15);
+    --transition-standard: all 0.3s ease;
+}
+
+/* Reset básico para eliminar márgenes y rellenos predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del cuerpo de la página */
+body {
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+}
+
+/* Contenedor principal con ancho máximo */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Tarjeta de login con diseño flexible */
+.login-card {
+    display: flex;
+    background-color: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    min-height: 600px;
+}
+
+/* Sección izquierda con la marca y animación */
+.brand-section {
+    flex: 1;
+    background: linear-gradient(145deg, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Contenedor para el SVG animado */
+.svg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Iconos de redes sociales en la parte inferior */
+.social-icons {
+    display: flex;
+    gap: 20px;
+    margin-top: auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Estilo individual para cada icono social */
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition-standard);
+}
+
+/* Efecto hover para los iconos sociales */
+.social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Sección derecha con el formulario de login */
+.login-section {
+    flex: 1.2;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo del título principal */
+h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+}
+
+/* Estilo de la descripción */
+.description {
+    color: var(--text-light);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Grupo de entrada con estilo flotante */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+/* Estilo de los campos de entrada */
+.input-group input {
+    width: 100%;
+    padding: 16px 40px 16px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: var(--transition-standard);
+    outline: none;
+    background-color: var(--bg-light);
+}
+
+/* Etiquetas flotantes para los campos */
+.input-group label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-lighter);
+    pointer-events: none;
+    transition: var(--transition-standard);
+}
+
+/* Efectos de enfoque para campos de entrada */
+.input-group input:focus,
+.input-group input:valid {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(147, 112, 219, 0.1);
+}
+
+/* Movimiento de etiquetas al enfocar o cuando hay contenido */
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: 0;
+    left: 12px;
+    font-size: 12px;
+    background-color: var(--white);
+    padding: 0 5px;
+    color: var(--primary-color);
+}
+
+/* Iconos dentro de los campos de entrada */
+.input-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-lighter);
+}
+
+/* Botón para mostrar/ocultar contraseña */
+.toggle-password {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-lighter);
+    cursor: pointer;
+    transition: var(--transition-standard);
+}
+
+/* Efecto hover para el botón de mostrar/ocultar contraseña */
+.toggle-password:hover {
+    color: var(--primary-color);
+}
+
+/* Fila con opciones adicionales */
+.options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Estilo para la opción "Recordarme" */
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Estilo personalizado para el checkbox */
+.remember-me input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition-standard);
+}
+
+/* Estilo para checkbox seleccionado */
+.remember-me input[type="checkbox"]:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Símbolo de verificación para checkbox seleccionado */
+.remember-me input[type="checkbox"]:checked:after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: white;
+}
+
+/* Enlace para recuperar contraseña */
+.forgot-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-standard);
+}
+
+/* Efecto hover para enlace de recuperación */
+.forgot-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Botón principal de inicio de sesión */
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-standard);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Efectos hover para el botón de inicio de sesión */
+.login-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(147, 112, 219, 0.3);
+}
+
+/* Efectos active para el botón de inicio de sesión */
+.login-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Animación de carga para el botón */
+.btn-loader {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+/* Clase para activar la animación de carga */
+.btn-loader.active {
+    display: block;
+    animation: spin 0.8s linear infinite;
+}
+
+/* Animación de giro para el loader */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Sección de login alternativo */
+.alt-login {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Texto divisor con líneas decorativas */
+.alt-login p {
+    color: var(--text-light);
+    margin-bottom: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Líneas decorativas antes y después del texto */
+.alt-login p:before,
+.alt-login p:after {
+    content: "";
+    height: 1px;
+    background-color: #e0e0e0;
+    flex: 1;
+}
+
+/* Línea izquierda */
+.alt-login p:before {
+    margin-right: 10px;
+}
+
+/* Línea derecha */
+.alt-login p:after {
+    margin-left: 10px;
+}
+
+/* Contenedor para botones de login alternativo */
+.alt-login-options {
+    display: flex;
+    gap: 15px;
+}
+
+/* Estilo para botones de Google y Microsoft */
+.google-btn,
+.microsoft-btn {
+    flex: 1;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: var(--white);
+    color: var(--text-dark);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-standard);
+}
+
+/* Efectos hover para botones de login alternativo */
+.google-btn:hover,
+.microsoft-btn:hover {
+    background-color: var(--bg-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Colores específicos para los botones de login alternativo */
+.google-btn:hover i {
+    color: #DB4437;
+}
+
+.microsoft-btn:hover i {
+    color: #00A4EF;
+}
+
+/* Enlace para registrarse */
+.signup-option {
+    margin-top: 30px;
+    text-align: center;
+    color: var(--text-light);
+}
+
+/* Estilo para enlace dentro de la opción de registro */
+.signup-option a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-standard);
+}
+
+/* Efecto hover para enlace de registro */
+.signup-option a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Animaciones para la entrada de elementos */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+        
+/* Error message styles */
+.error-message {
+    color: var(--secondary-color);
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Aplicamos animación de entrada a todos los elementos */
+.login-section > * {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Animación secuencial para los elementos */
+.login-section > *:nth-child(2) { animation-delay: 0.1s; }
+.login-section > *:nth-child(3) { animation-delay: 0.2s; }
+.login-section > *:nth-child(4) { animation-delay: 0.3s; }
+.login-section > *:nth-child(5) { animation-delay: 0.4s; }
+
+/* Diseño responsive para tablets */
+@media (max-width: 992px) {
+    .login-card {
+        flex-direction: column;
+    }
+        
+    .brand-section {
+        padding: 30px;
+        min-height: 200px;
+    }
+        
+    .login-section {
+        padding: 30px;
+    }
+}
+
+/* Diseño responsive para móviles */
+@media (max-width: 576px) {
+    .container {
+        padding: 10px;
+    }
+        
+    .login-section {
+        padding: 20px;
+    }
+        
+    .options-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+        
+    .alt-login-options {
+        flex-direction: column;
+    }
+}
+
+/* Animación para los círculos pulsantes */
+.circulo {
+    animation: pulsar 3s infinite alternate;
+    transform-origin: center;
+    opacity: 0.6;
+}
+.circulo:nth-child(2) {
+    animation-delay: 0.5s;
+}
+.circulo:nth-child(3) {
+    animation-delay: 1s;
+}
+.pulso {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dibujarLinea 3s infinite alternate;
+}
+@keyframes pulsar {
+    0% { transform: scale(0.8); opacity: 0.3; }
+    100% { transform: scale(1); opacity: 0.6; }
+}
+@keyframes dibujarLinea {
+    0% { stroke-dashoffset: 1000; }
+    100% { stroke-dashoffset: 0; }
+}
+
+/* Añadir brillos y efectos de acento */
+.accent-dot {
+    fill: var(--accent);
+    filter: drop-shadow(0 0 5px var(--accent));
+}
+
+/* Efecto de brillo para elementos resaltados */
+.glow-effect {
+    box-shadow: 0 0 10px var(--primary-light);
+    animation: glowing 2s infinite alternate;
+}
+
+@keyframes glowing {
+    0% { box-shadow: 0 0 5px var(--primary-light); }
+    100% { box-shadow: 0 0 15px var(--primary-light), 0 0 20px var(--accent); }
+}

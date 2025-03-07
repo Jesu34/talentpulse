@@ -3,26 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido a Heinson</title>
+    <title>TalentPulse - Gestión de Talento Humano</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Bienvenido a Heinson</h1>
-            <p>Nomina y Gestion Humana</p>
-        </div>
-        <div class="welcome-message">
-            <p>Hola! Te damos la bienvenida a nuestra solución. El sistema que integra todos los procesos de normativa y gestión humana en un solo lugar.</p>
-        </div>
-        <div class="login-form">
-            <input type="text" id="username" placeholder="Ingresa tu compañía o usuario">
-            <button onclick="ingresar()">Ingresar</button>
-        </div>
-        <div class="footer">
-            <p>Contacto: <a href="mailto:j.jecautal@cortiamas.com">j.jecautal@cortiamas.com</a></p>
+        <div class="login-card">
+            <!-- Sección izquierda con la marca y SVG animado -->
+            <div class="brand-section">
+                <div class="svg-container">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="gradiente" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="rgba(255, 255, 255, 0.2)" />
+                                <stop offset="100%" stop-color="rgba(255, 255, 255, 0.1)" />
+                            </linearGradient>
+                            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="10" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+                        
+                        <!-- Círculos pulsantes con efecto de brillo -->
+                        <circle class="circulo" cx="400" cy="300" r="50" fill="url(#gradiente)" />
+                        <circle class="circulo" cx="400" cy="300" r="100" fill="url(#gradiente)" />
+                        <circle class="circulo" cx="400" cy="300" r="150" fill="url(#gradiente)" />
+                        
+                        <!-- Línea de pulso cardiaco -->
+                        <path class="pulso" d="M 100,300 Q 150,300 200,300 T 300,200 T 400,300 T 500,200 T 600,300 T 700,300"
+                              stroke="rgba(255, 255, 255, 0.7)" fill="none" stroke-width="4" filter="url(#glow)" />
+                        
+                        <!-- Puntos de acento con el color accent -->
+                        <circle class="accent-dot" cx="300" cy="200" r="8" />
+                        <circle class="accent-dot" cx="500" cy="200" r="8" />
+                        
+                        <!-- Logo de TalentPulse -->
+                        <text x="400" y="300" text-anchor="middle" font-size="40" fill="white" font-weight="bold" filter="url(#glow)">TalentPulse</text>
+                    </svg>
+                </div>
+                
+                <!-- Iconos de redes sociales -->
+                <div class="social-icons">
+                    <a href="#" class="social-icon linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon website">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="#" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sección derecha con el formulario de login -->
+            <div class="login-section">
+                <h1>¡Bienvenido a TalentPulse!</h1>
+                <p class="description">La plataforma que revoluciona la gestión del talento humano en tu empresa. Accede para gestionar nóminas, vacaciones y mucho más.</p>
+                
+                <!-- Formulario de inicio de sesión -->
+                <form id="login-form">
+                    <!-- Campo de correo electrónico -->
+                    <div class="input-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Correo electrónico</label>
+                        <i class="input-icon fas fa-envelope"></i>
+                    </div>
+                    
+                    <!-- Campo de contraseña con botón para mostrar/ocultar -->
+                    <div class="input-group">
+                        <input type="password" id="password" required>
+                        <label for="password">Contraseña</label>
+                        <i class="toggle-password fas fa-eye-slash"></i>
+                    </div>
+                    
+                    <!-- Opciones adicionales (recordar usuario y recuperar contraseña) -->
+                    <div class="options-row">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Recordarme</label>
+                        </div>
+                        <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    
+                    <!-- Botón de inicio de sesión con animación de carga -->
+                    <button type="submit" class="login-btn">
+                        <span>Iniciar Sesión</span>
+                        <div class="btn-loader"></div>
+                    </button>
+                </form>
+                
+                <!-- Opciones alternativas de inicio de sesión -->
+                <div class="alt-login">
+                    <p>O inicia sesión con</p>
+                    <div class="alt-login-options">
+                        <button class="google-btn">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button class="microsoft-btn">
+                            <i class="fab fa-microsoft"></i>
+                            <span>Microsoft</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Opción para registrarse -->
+                <p class="signup-option">¿No tienes una cuenta? <a href="#">Regístrate</a></p>
+            </div>
         </div>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
